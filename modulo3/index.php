@@ -145,4 +145,15 @@ echo $linha;
 
 //
 echo "Exercicio 12 - Interpolação vs. concatenação\n";
+$produto = "Notebook";
+$preco = 3500.99;
+
+echo "O produto " . $produto . " custa R$" . $preco . ".";
+echo $linha;
+
+//
+echo "Exercicio 13 - Simulador de desconto\n";
+$precoOriginal = 250.0;
+$desconto = 15;
+
 
