@@ -156,4 +156,5 @@ echo "Exercicio 13 - Simulador de desconto\n";
 $precoOriginal = 250.0;
 $desconto = 15;
 
+//////////////////////
 
