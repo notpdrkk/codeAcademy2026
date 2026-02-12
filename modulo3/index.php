@@ -153,8 +153,58 @@ echo $linha;
 
 //
 echo "Exercicio 13 - Simulador de desconto\n";
-$precoOriginal = 250.0;
-$desconto = 15;
+$precoOriginal = 250;
+$desconto = 15; 
+$precoFinal = $precoOriginal - ($precoOriginal * 0.15);
 
-//////////////////////
+echo "Preço final: R$" . $precoFinal;
+echo ($precoFinal >= 200) ? "\nCompra cara" : "\nCompra barata"; 
 
+echo $linha;
+
+//
+echo "Exercicio 14 - Verificador de tipo com is_*\n";
+
+$tipo1 = 42;
+$tipo2 = "42";
+$tipo3 = true;
+
+echo "Variavel 1: \n" . is_int($tipo1) . "\n" . is_float($tipo1) . "\n" . is_string($tipo1) . 
+"\n" . is_bool($tipo1) . "\n" . is_null($tipo1) . "\n" . is_numeric($tipo1);
+
+echo "\nVariavel 2: \n" . is_int($tipo2) . "\n" . is_float($tipo2) . "\n" . is_string($tipo2) . 
+"\n" . is_bool($tipo2) . "\n" . is_null($tipo2) . "\n" . is_numeric($tipo2);
+
+echo "\nVariavel 3: \n" . is_int($tipo3) . "\n" . is_float($tipo3) . "\n" . is_string($tipo3) . 
+"\n" . is_bool($tipo3) . "\n" . is_null($tipo3) . "\n" . is_numeric($tipo3);
+echo $linha;
+
+//
+echo "Exercicio 15 - Operador null coalescing\n";
+
+$nome = $nomeUsuario ?? "Visitante";
+$tema = $temaEscolhido ?? $temaPadrao ?? "claro";
+
+echo $nome . "\n"; echo $tema;
+echo $linha;
+
+// 
+echo "Exercicio 16 - Cálculo de parcelas\n";
+$valorTotal = 1899.90;
+$numParcelas = 6;
+
+$valorParcelas = $valorTotal/$numParcelas;
+
+echo floor($valorParcelas) . "\n";
+echo ceil($valorParcelas) . "\n";
+echo round($valorParcelas, 2, PHP_ROUND_HALF_ODD);
+echo $linha;
+
+//
+echo "Exercicio 17 - Mini sistema de notas\n";
+$nota1 = 7.5; $nota2 = 8.0; $nota3 = 6.5;
+$peso1 = 2; $peso2 = 3; $peso3 = 5;
+
+$mediaNotas = ($nota1 + $nota2 + $nota3) / 3;
+echo ($mediaNotas >= 7 ? "Aprovado" : ($mediaNotas >= 5 ? "Recuperacao" : "Reprovado"));
+echo $linha;
