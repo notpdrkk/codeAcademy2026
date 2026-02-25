@@ -92,7 +92,7 @@ endif;
 echo $linha;
 
 //
-echo "Contar ocorrências de substring\n";
+echo "Exercicio 10 - Contar ocorrências de substring\n";
 $string = "banana";
 echo substr_count ($string, "ana") . "\n";
 echo substr_count ($string, "a");
