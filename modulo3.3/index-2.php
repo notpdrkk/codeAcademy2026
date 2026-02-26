@@ -32,4 +32,37 @@ echo $linha;
 
 //
 echo "Exercicio 15 - Verificar inicio e fim da string\n";
-$string = "arquivo_relatorio.pdl\n";
+$string = "arquivo_relatorio.pdf";
+
+echo str_starts_with($string, "arquivo") ? "true\n" : "false\n";
+echo str_ends_with($string, ".pdf") ? "true" : "false";
+echo $linha;
+
+//
+echo "Exercicio 16 - Verificar sem contém substring\n";
+
+$string = "O PHP eh uma linguagem de programação server-side";
+
+echo str_contains($string, "server-side") ? "true\n" : "false\n";
+echo str_contains($string, "client-side") ? "true" : "false";
+echo $linha;
+
+//
+echo "Exercicio 17 - Embaralhar e extrair caracteres aleatórios\n";
+
+$string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+$embaralhada = str_shuffle($string);
+
+echo substr($embaralhada, 0, 8 );
+echo $linha;
+
+//
+echo "Exercicio 18 - Contagem de palavras\n";
+
+$string = "PHP eh uma linguagem popular para desenvolvimento web";
+$array = explode (" ", $string);
+
+echo str_word_count($string), "\n";
+print_r($array);
+
+echo $linha;
