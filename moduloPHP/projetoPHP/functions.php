@@ -1,7 +1,7 @@
 <?php
 
 $usuarios = [
-    ['nome' => "admin", 'email' => "admin@admin.com", 'senha' => "123456"],
+    ['nome' => "admin", 'email' => "admin", 'senha' => "1"],
 ];
 
 $ehLogado = false;
@@ -93,4 +93,22 @@ function listarUsuarios(){
     global $usuarios;
 
     print_r($usuarios);
+
+    echo "1 - Voltar ao menu\n2 - Sair do sistema\n";
+    $escolha = readline("Sua escolha: ");
+
+    switch ($escolha){
+        case 1: {
+            menu();
+            break;
+        } case 2: {
+            loginMenu();
+            break;
+        } default: {
+            echo "Opção inválida";
+            listarUsuarios();
+        }
+    }
+    
+    
 }
