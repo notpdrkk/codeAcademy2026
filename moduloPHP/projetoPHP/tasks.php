@@ -1,5 +1,7 @@
 <?php
 
+require "index.php";
+
 function criarTarefa()
 {
     global $tarefas;
@@ -41,7 +43,7 @@ function listarTarefas()
     limpaTela();
 
     foreach ($tarefas as $tarefa) {
-        echo "Tarefa: ", $tarefa["descricao"], " | Prazo: ", $tarefa["prazo"], " | Concluida: ";
+        echo "Tarefa: " .  $tarefa["descricao"] . " | Prazo: ", $tarefa["prazo"] .  " | Concluida: ";
         echo ($tarefa["concluida"] ? "true" : "false");
         echo "\n---------------------------------------\n";
     }
@@ -57,15 +59,15 @@ function buscarTarefa()
     $encontrada = false;
     $busca = readline("Procure uma tarefa pelo id: ");
 
-    foreach ($tarefas as $index => $valor) {
-        if ($busca == $valor['id']) {
+    foreach ($tarefas as $valor) {
+        if ($busca == $valor["id"]) {
             echo "\nId: " . $valor["id"];
             echo "\nDescrição: " . $valor["descricao"];
             echo "\nPrioridade: " . $valor["prioridade"];
             echo "\nPrazo: " . $valor["prazo"];
             echo "\nConcluida: " . ($valor["concluida"] ? "true" : "false");
             echo "\n";
-            $encontrada = ['index' => $valor['id'], 'valor' => $valor];
+            $encontrada = ["index" => $valor["id"], "valor" => $valor];
             break;
         }
     }
@@ -86,25 +88,24 @@ function editarTarefa()
 
     limpaTela();
 
-    $encontrada = false;
-    $busca = readline("Procure uma tarefa pelo id: ");
+    $busca = buscarTarefa();
 
     foreach ($tarefas as $index => $valor) {
         if ($busca == $valor['id']) {
-            $encontrada = ['index' => $index, 'valor' => $valor];
+            $busca = ['id' => $index, 'valor' => $valor];
             break;
         }
     }
 
-    if (!$encontrada) {
+    if (!$busca) {
         echo "Nenhuma tarefa encontrada!\n";
         readline("\nPressione Enter para voltar ao menu");
         mainMenu();
         return;
     }
 
-    $index = $encontrada['index'];
-    $tarefa = $encontrada['valor'];
+    $index = $busca['id'];
+    $tarefa = $busca['valor'];
 
     echo "\nStatus atual: " . ($tarefa["concluida"] ? "true" : "false") . "\n";
     echo "1 - Marcar como concluída\n2 - Marcar como pendente\n3 - Voltar ao menu\n";
@@ -135,9 +136,10 @@ function removerTarefa()
     limpaTela();
 
     $busca = buscarTarefa();
+    
     if ($busca === null) return;
 
-    echo "\n Deseja remover a tarefa \"" . $busca['valor']['descricao'] . "\"?\n";
+    echo "\nDeseja remover a tarefa \"" . $busca['valor']['descricao'] . "\"?\n";
     echo "1 - Sim\n2 - Não\n";
     $escolha = readline("Sua escolha: ");
 
