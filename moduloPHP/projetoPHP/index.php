@@ -7,8 +7,7 @@ require_once "utils.php";
 $usuarios = [
     [
         "email" => "admin",
-        "senha" => "1",
-        "cargo" => "admin"
+        "senha" => "123",
     ]
 ];
 
