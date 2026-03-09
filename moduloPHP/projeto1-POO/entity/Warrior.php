@@ -3,8 +3,15 @@
 class Warrior extends Character
 {
 
-    public function __construct($name, $charClass, $health, $defense, $atkDamage, $skills)
+    public function __construct()
     {
-        return parent::__construct($name, $charClass, $health, $defense, $atkDamage, $skills);
+        parent::__construct(
+            name: "Warrior",
+            charClass: "Warrior",
+            health: 180,
+            defense: 90,
+            atkDamage: 50,
+            skills: null
+        );
     }
 }

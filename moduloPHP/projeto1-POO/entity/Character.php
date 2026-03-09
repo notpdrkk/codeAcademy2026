@@ -79,4 +79,8 @@ abstract class Character
     {
         $this->skills = $skills;
     }
+
+    public function showClassDetails(){
+        return null;
+    }
 }

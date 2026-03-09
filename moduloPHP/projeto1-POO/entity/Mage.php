@@ -2,10 +2,15 @@
 
 class Mage extends Character
 {
-
-    
-    public function __construct($name, $charClass, $health, $defense, $atkDamage, $skills)
+    public function __construct()
     {
-        return parent::__construct($name, $charClass, $health, $defense, $atkDamage, $skills);
+        parent::__construct(
+            name: "Mage",
+            charClass: "Mage",
+            health: 100,
+            defense: 50,
+            atkDamage: 40,
+            skills: null
+        );
     }
 }
