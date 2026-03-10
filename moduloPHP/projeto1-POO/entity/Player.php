@@ -7,6 +7,12 @@ class Player
     private $turn;
 
     private Character $char;
+    public function __construct($name, $turn, Character $char)
+    {
+        $this->name = $name;
+        $this->turn = $turn;
+        $this->char = $char;
+    }
 
     public function getName()
     {

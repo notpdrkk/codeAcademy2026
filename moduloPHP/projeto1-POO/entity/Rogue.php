@@ -4,7 +4,9 @@ class Rogue extends Character
 {
     public function __construct()
     {
+        echo "Criando rogue!\n";
         parent::__construct(
+            id: 2,
             name: "Rogue",
             charClass: "Rogue",
             health: 150,
@@ -18,4 +20,10 @@ class Rogue extends Character
     {
         echo "Os Rogues têm proficiência com kits de veneno, podendo aplicar venenos em armas para causar dano extra.\n";
     }
+
+    public function attack()
+    {
+        echo "Rogue ataca com uma adaga, causando dano de " . $this->getAtkDamage() . " pontos.\n";
+    }
+
 }

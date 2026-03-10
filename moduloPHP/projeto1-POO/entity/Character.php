@@ -3,6 +3,8 @@
 abstract class Character
 {
 
+    private $id;
+
     private $name;
     private $charClass;
     private $health;
@@ -10,8 +12,9 @@ abstract class Character
     private $atkDamage;
     private $skills;
 
-    public function __construct($name, $charClass, $health, $defense, $atkDamage, $skills)
+    public function __construct($id, $name, $charClass, $health, $defense, $atkDamage, $skills)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->charClass = $charClass;
         $this->health = $health;
@@ -80,7 +83,8 @@ abstract class Character
         $this->skills = $skills;
     }
 
-    public function showClassDetails(){
+    public function showClassDetails()
+    {
         return null;
     }
 }

@@ -3,17 +3,17 @@
 function charSelector()
 {
     echo "1 - Rogue\n2 - Warrior\n3 - Mage\n";
-    $escolha = readline("Sua escolha: ");
+    $choice = readline("Sua escolha: ");
 
-    switch ($escolha) {
+    switch ($choice) {
         case 1:
-            $char1 = new Rogue();
+            $char = new Rogue();
             break;
         case 2:
-            $char1 = new Warrior();
+            $char = new Warrior();
             break;
         case 3:
-            $char1 = new Mage();
+            $char = new Mage();
             break;
         default:
             echo "Opção inválida!\n";
@@ -22,4 +22,5 @@ function charSelector()
             break;
     }
 
+    return $char;
 }

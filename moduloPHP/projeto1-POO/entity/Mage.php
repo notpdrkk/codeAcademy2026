@@ -4,7 +4,10 @@ class Mage extends Character
 {
     public function __construct()
     {
+        echo "Criando mago!\n";
+
         parent::__construct(
+            id: 1,
             name: "Mage",
             charClass: "Mage",
             health: 100,
