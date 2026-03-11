@@ -13,7 +13,9 @@ abstract class Character implements combatInterface
     private $defense;
     private $atkDamage;
 
-    public function __construct($id, $name, $charClass, $health, $defense, $atkDamage)
+    private $skills;
+
+    public function __construct($id, $name, $charClass, $health, $defense, $atkDamage, $skills)
     {
         $this->id = $id;
         $this->name = $name;
@@ -21,6 +23,7 @@ abstract class Character implements combatInterface
         $this->health = $health;
         $this->defense = $defense;
         $this->atkDamage = $atkDamage;
+        $this->skills = $skills;
     }
 
     public function getName()
@@ -73,7 +76,15 @@ abstract class Character implements combatInterface
         $this->atkDamage = $atkDamage;
     }
 
-    public function attacK(Character $character)
+    public function getSkills(){
+        return $this->skills;
+    }
+
+    public function setSkills($skills){
+        $this->skills = $skills;
+    }
+
+    public function attack(Character $character)
     {
         return null;
     }

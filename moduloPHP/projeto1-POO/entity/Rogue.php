@@ -10,8 +10,12 @@ class Rogue extends Character
             name: "Rogue",
             charClass: "Rogue",
             health: 110,
-            defense: 50,
-            atkDamage: 40,
+            defense: 40,
+            atkDamage: 50,
+            skills: [
+                "Backstab",
+                "Instant poison"
+            ]
         );
     }
 

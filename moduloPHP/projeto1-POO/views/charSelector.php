@@ -26,6 +26,5 @@ function charSelector()
             charSelector();
             break;
     }
-
     return $char;
 }

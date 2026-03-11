@@ -12,12 +12,3 @@ mainMenu();
 
 $player1 =  charSelector();
 $player2 = charSelector();
-
-var_dump($player1);
-var_dump($player2);
-
-$player1->attack($player2);
-$player1->decreaseHealth($player2, $player1->getAtkDamage());
-
-var_dump($player2);
-

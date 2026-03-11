@@ -12,7 +12,11 @@ class Mage extends Character
             charClass: "Mage",
             health: 100,
             defense: 40,
-            atkDamage: 20,
+            atkDamage: 30,
+            skills: [
+                "Arcane shot",
+                "Arcane Shield"
+            ]
         );
     }
 
@@ -29,7 +33,11 @@ class Mage extends Character
         return null;
     }
 
-    public function useSkill($character) {}
+    public function useSkill($character)
+    {
+
+        return null;
+    }
 
     public function changeTurn($character)
     {

@@ -12,7 +12,11 @@ class Warrior extends Character
             charClass: "Warrior",
             health: 120,
             defense: 70,
-            atkDamage: 30,
+            atkDamage: 40,
+            skills: [
+                "Victory Rush",
+                "Berserker Rage"
+            ]
         );
     }
 
