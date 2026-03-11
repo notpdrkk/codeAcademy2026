@@ -1,7 +1,12 @@
 <?php
 
+require_once "./utils/utils.php";
+
 function charSelector()
 {
+    $char = null;
+
+    echo "Escolha seu personagem: \n";
     echo "1 - Rogue\n2 - Warrior\n3 - Mage\n";
     $choice = readline("Sua escolha: ");
 
@@ -17,7 +22,7 @@ function charSelector()
             break;
         default:
             echo "Opção inválida!\n";
-            readline("Pressione enter para escolher novamente");
+            readline("Pressione ENTER para escolher novamente");
             charSelector();
             break;
     }

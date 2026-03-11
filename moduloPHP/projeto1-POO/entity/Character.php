@@ -1,6 +1,8 @@
 <?php
 
-abstract class Character
+require_once "interfaces/combatInterface.php";
+
+abstract class Character implements combatInterface
 {
 
     private $id;
@@ -10,9 +12,8 @@ abstract class Character
     private $health;
     private $defense;
     private $atkDamage;
-    private $skills;
 
-    public function __construct($id, $name, $charClass, $health, $defense, $atkDamage, $skills)
+    public function __construct($id, $name, $charClass, $health, $defense, $atkDamage)
     {
         $this->id = $id;
         $this->name = $name;
@@ -20,7 +21,6 @@ abstract class Character
         $this->health = $health;
         $this->defense = $defense;
         $this->atkDamage = $atkDamage;
-        $this->skills = $skills;
     }
 
     public function getName()
@@ -73,17 +73,22 @@ abstract class Character
         $this->atkDamage = $atkDamage;
     }
 
-    public function getSkills()
+    public function attacK(Character $character)
     {
-        return $this->skills;
+        return null;
     }
 
-    public function setSkills($skills)
+    public  function defend(Character $character)
     {
-        $this->skills = $skills;
+        return null;
     }
 
-    public function showClassDetails()
+    public function useSkill(Character $character)
+    {
+        return null;
+    }
+
+    public function changeTurn(Character $character)
     {
         return null;
     }

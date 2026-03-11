@@ -1,9 +1,10 @@
 <?php
 
 require_once "charSelector.php";
+require_once "utils/utils.php";
 function mainMenu()
 {
+    clearScreen();
     echo "Seja muito bem-vindo(a) ao POO RPG Game\n";
-    readline("Pressione qualquer tecla para selecionar um personagem");
-    charSelector();
+    readline("Pressione ENTER para selecionar um personagem");
 }
