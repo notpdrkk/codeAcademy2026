@@ -4,8 +4,6 @@ class Mage extends Character
 {
     public function __construct($name)
     {
-        echo "Criando mago!\n";
-
         parent::__construct(
             name: $name ?? "Mage",
             charClass: "Mage",
@@ -13,7 +11,8 @@ class Mage extends Character
             defense: 2,
             atkDamage: 18,
             skill1: "Arcane shot",
-            skill2: "Arcane Shield"
+            skill2: "Arcane Shield",
+            heal: true
         );
     }
 
@@ -21,22 +20,28 @@ class Mage extends Character
     {
         $damage = $this->getAtkDamage() - $opponent->getDefense();
         $opponent->setHealth($opponent->getHealth() - $damage);
-        
-        echo "Mage conjura sua magia, causando dano de " . $this->getAtkDamage() . " pontos.\n";
+
+        echo $this->getName() . " conjura sua magia, causando dano de " . $this->getAtkDamage() . " pontos.\n";
         echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
     }
 
-    public function defend(Character $opponent)
+    public function heal()
     {
-        echo "Mage se esquiva do ataque, reduzindo o dano recebido em " . $this->getDefense() . " pontos.\n";
-        $this->setDefense($this->getDefense() * 2);
+        if ($this->hasHeal()) {
+            echo "Usando poção de cura, " . $this->getName() . " recupera 20 pontos de vida.\n";
+            $this->setHealth($this->getHealth() + 20);
+            echo $this->getName() . " agora tem " . $this->getHealth() . " pontos de vida\n";
+            $this->setHeal(false);
+        } else {
+            throw new Exception("Você já usou sua poção de cura!");
+        }
     }
 
-    public function useSkill1(Character $opponent)
+    public function useSkill_1(Character $opponent)
     {
         echo "usando arcane shot\n";
     }
-    public function useSkill2(Character $opponent)
+    public function useSkill_2(Character $opponent)
     {
         echo "usando arcane shield\n";
     }

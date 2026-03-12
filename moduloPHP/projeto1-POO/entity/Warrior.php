@@ -5,7 +5,6 @@ class Warrior extends Character
 
     public function __construct($name)
     {
-        echo "Criando warrior!\n";
         parent::__construct(
             name: $name ?? "Warrior",
             charClass: "Warrior",
@@ -13,7 +12,8 @@ class Warrior extends Character
             defense: 8,
             atkDamage: 12,
             skill1: "Victory Rush",
-            skill2: "Berserker Rage" 
+            skill2: "Berserker Rage",
+            heal: true
         );
     }
 
@@ -26,17 +26,30 @@ class Warrior extends Character
         echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
     }
 
-    public function defend(Character $opponent)
+    public function heal()
     {
-        echo "Warrior se prepara para o ataque, aumentando sua defesa em " . $this->getDefense() . " pontos.\n";
+        if ($this->hasHeal()) {
+            echo "Usando poção de cura, " . $this->getName() . " recupera 20 pontos de vida.\n";
+            $this->setHealth($this->getHealth() + 20);
+            echo $this->getName() . " agora tem " . $this->getHealth() . " pontos de vida\n";
+            $this->setHeal(false);
+        } else {
+            throw new Exception("Você já usou sua poção de cura!");
+        }
     }
 
-    public function useSkill1(Character $opponent)
+    public function useSkill_1(Character $opponent)
     {
-        return "Usando victory rush\n";
+        echo "Warrior usa Victory Rush, causando dano de " . ($this->getAtkDamage() + 5) . " pontos e recuperando 10 pontos de vida.\n";
+        $opponent->setHealth($opponent->getHealth() - ($this->getAtkDamage() + 5));
+        $this->setHealth($this->getHealth() + 10);
+        echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
+        echo $this->getName() . " agora tem " . $this->getHealth() . " pontos de vida\n";
     }
 
-    public function useSkills2 (Character $opponent){
-        return "Usando berserker rage\n";
+    public function useSkill_2(Character $opponent)
+    {
+        echo "Warrior usa Berserker Rage, aumentando seu ataque em 5 pontos por 3 turnos.\n";
+        $this->setAtkDamage($this->getAtkDamage() + 5);
     }
 }

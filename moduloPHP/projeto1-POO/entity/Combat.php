@@ -15,19 +15,34 @@ class Combat
         while (!$isActive) {
 
             echo " É a sua vez de atacar, " . $attacker->getName() . "!\n";
-            echo " [1] - Atacar\n [2] -Defender\n [3] - Usar Habilidade Especial\n";
+            echo " [1] - Atacar\n [2] - Curar\n";
+            echo " [3] - Usar " . $attacker->getSkill_1() . "\n";
+            echo " [4] - Usar " . $attacker->getSkill_2() . "\n";
+
             $choice = readline("-> Sua escolha: ");
-            switch ($choice) {
-                case 1: $attacker->attack($defender); 
-                    break;
-                case 2: $attacker->defend($defender); 
-                    break;
-                case 3: $attacker->useSkill($defender); 
-                    break;
-                default:
-                    echo "Opção inválida!\n";
-                    readline("Pressione ENTER para escolher novamente");
-                    continue 2;
+            try {
+                switch ($choice) {
+                    case 1:
+                        $attacker->attack($defender);
+                        break;
+                    case 2:
+                        $attacker->heal();
+                        break;
+                    case 3:
+                        $attacker->useSkill_1($defender);
+                        break;
+                    case 4:
+                        $attacker->useSkill_2($defender);
+                        break;
+                    default:
+                        echo "Opção inválida!\n";
+                        readline("Pressione ENTER para escolher novamente");
+                        continue 2;
+                }
+            } catch (Exception $e) {
+                echo "Mana insuficiente! " . $e->getMessage() . "\n";
+                readline("Pressione ENTER para escolher novamente");
+                continue;
             }
             $isActive = true;
         }
