@@ -2,52 +2,42 @@
 
 class Mage extends Character
 {
-    public function __construct()
+    public function __construct($name)
     {
         echo "Criando mago!\n";
 
         parent::__construct(
-            id: 1,
-            name: "Mage",
+            name: $name ?? "Mage",
             charClass: "Mage",
-            health: 100,
-            defense: 40,
-            atkDamage: 30,
-            skills: [
-                "Arcane shot",
-                "Arcane Shield"
-            ]
+            health: 60,
+            defense: 2,
+            atkDamage: 18,
+            skill1: "Arcane shot",
+            skill2: "Arcane Shield"
         );
     }
 
-    public function attack($character)
+    public function attack(Character $opponent)
     {
-        $damage = $this->getAtkDamage() - $character->getDefense();
-        $damage = max(0, $damage);
-        $character->setHealth($character->getHealth() - $damage);
+        $damage = $this->getAtkDamage() - $opponent->getDefense();
+        $opponent->setHealth($opponent->getHealth() - $damage);
+        
         echo "Mage conjura sua magia, causando dano de " . $this->getAtkDamage() . " pontos.\n";
+        echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
     }
 
-    public  function defend($character)
+    public function defend(Character $opponent)
     {
-        return null;
+        echo "Mage se esquiva do ataque, reduzindo o dano recebido em " . $this->getDefense() . " pontos.\n";
+        $this->setDefense($this->getDefense() * 2);
     }
 
-    public function useSkill($character)
+    public function useSkill1(Character $opponent)
     {
-
-        return null;
+        echo "usando arcane shot\n";
     }
-
-    public function changeTurn($character)
+    public function useSkill2(Character $opponent)
     {
-        return null;
-    }
-
-    public function decreaseHealth(Character $character, int $amount)
-    {
-        $newHealth = $character->getHealth() - $amount;
-        $character->setHealth(max(0, $newHealth));
-        return $character->getHealth();
+        echo "usando arcane shield\n";
     }
 }

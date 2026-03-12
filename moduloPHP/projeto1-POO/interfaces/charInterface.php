@@ -1,10 +1,8 @@
 <?php
 
-interface combatInterface
+interface charInterface
 {
-    public function attack(Character $character);
-    public function defend(Character $character);
-    public function useSkill(Character $character);
-    public function changeTurn(Character $character);
-    public function decreaseHealth(Character $character, int $amount);
+    public function attack(Character $opponent);
+    public function defend(Character $opponent);
+    public function useSkill(Character $opponent);
 }

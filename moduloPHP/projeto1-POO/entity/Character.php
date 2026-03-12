@@ -1,11 +1,9 @@
 <?php
 
-require_once "interfaces/combatInterface.php";
+require_once "interfaces/charInterface.php";
 
-abstract class Character implements combatInterface
+abstract class Character implements charInterface
 {
-
-    private $id;
 
     private $name;
     private $charClass;
@@ -13,17 +11,17 @@ abstract class Character implements combatInterface
     private $defense;
     private $atkDamage;
 
-    private $skills;
-
-    public function __construct($id, $name, $charClass, $health, $defense, $atkDamage, $skills)
+    private $skill1;
+    private $skill2;
+    public function __construct($name, $charClass, $health, $defense, $atkDamage, $skill1, $skill2)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->charClass = $charClass;
         $this->health = $health;
         $this->defense = $defense;
         $this->atkDamage = $atkDamage;
-        $this->skills = $skills;
+        $this->skill1 = $skill1;
+        $this->skill2 = $skill2;
     }
 
     public function getName()
@@ -76,12 +74,20 @@ abstract class Character implements combatInterface
         $this->atkDamage = $atkDamage;
     }
 
-    public function getSkills(){
-        return $this->skills;
+    public function getSkill_1(){
+        return $this->skill1;
     }
 
-    public function setSkills($skills){
-        $this->skills = $skills;
+    public function setSkill_1($skill1){
+        $this->skill1 = $skill1;
+    }
+
+    public function getSkill_2(){
+        return $this->skill2;
+    }
+
+    public function setSkill_2($skill2){
+        $this->skill2 = $skill2;
     }
 
     public function attack(Character $character)

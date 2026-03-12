@@ -3,50 +3,40 @@
 class Warrior extends Character
 {
 
-    public function __construct()
+    public function __construct($name)
     {
         echo "Criando warrior!\n";
         parent::__construct(
-            id: 3,
-            name: "Warrior",
+            name: $name ?? "Warrior",
             charClass: "Warrior",
-            health: 120,
-            defense: 70,
-            atkDamage: 40,
-            skills: [
-                "Victory Rush",
-                "Berserker Rage"
-            ]
+            health: 100,
+            defense: 8,
+            atkDamage: 12,
+            skill1: "Victory Rush",
+            skill2: "Berserker Rage" 
         );
     }
 
-    public function attack($character)
+    public function attack(Character $opponent)
     {
-        $damage = $this->getAtkDamage() - $character->getDefense();
-        $damage = max(0, $damage);
-        $character->setHealth($character->getHealth() - $damage);
+        $damage = $this->getAtkDamage() - $opponent->getDefense();
+        $opponent->setHealth($opponent->getHealth() - $damage);
+
         echo "Warrior ataca com seu machado, causando dano de " . $this->getAtkDamage() . " pontos.\n";
+        echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
     }
 
-    public function defend($character)
+    public function defend(Character $opponent)
     {
-        return parent::defend($character);
+        echo "Warrior se prepara para o ataque, aumentando sua defesa em " . $this->getDefense() . " pontos.\n";
     }
 
-    public function useSkill($character)
+    public function useSkill1(Character $opponent)
     {
-        return parent::useSkill($character);
+        return "Usando victory rush\n";
     }
 
-    public function changeTurn($character)
-    {
-        return null;
-    }
-
-    public function decreaseHealth(Character $character, int $amount)
-    {
-        $newHealth = $character->getHealth() - $amount;
-        $character->setHealth(max(0, $newHealth));
-        return $character->getHealth();
+    public function useSkills2 (Character $opponent){
+        return "Usando berserker rage\n";
     }
 }
