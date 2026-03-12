@@ -4,7 +4,7 @@ require_once "./utils/utils.php";
 
 function charSelector()
 {
-    clearScreen();
+    system('clear');
     $char = null;
 
     line();
@@ -15,7 +15,7 @@ function charSelector()
 
     $choice = readline("Sua escolha: ");
 
-    clearScreen();
+    system('clear');
 
     $name = readline("Digite o nome do seu personagem: ");
 

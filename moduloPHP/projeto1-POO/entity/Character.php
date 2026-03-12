@@ -7,18 +7,19 @@ abstract class Character implements charInterface
     private $name;
     private $charClass;
     private $health;
+    private $mana;
     private $defense;
     private $atkDamage;
     private $skill1;
     private $skill2;
-
     private $heal = true;
 
-    public function __construct($name, $charClass, $health, $defense, $atkDamage, $skill1, $skill2, $heal)
+    public function __construct($name, $charClass, $health, $mana, $defense, $atkDamage, $skill1, $skill2, $heal)
     {
         $this->name = $name;
         $this->charClass = $charClass;
         $this->health = $health;
+        $this->mana = $mana;
         $this->defense = $defense;
         $this->atkDamage = $atkDamage;
         $this->skill1 = $skill1;
@@ -54,6 +55,16 @@ abstract class Character implements charInterface
     public function setHealth($health)
     {
         $this->health = $health;
+    }
+
+    public function getMana()
+    {
+        return $this->mana;
+    }
+
+    public function setMana($mana)
+    {
+        $this->mana = $mana;
     }
 
     public function getDefense()

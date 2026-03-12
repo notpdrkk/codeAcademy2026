@@ -8,9 +8,10 @@ class Mage extends Character
             name: $name ?? "Mage",
             charClass: "Mage",
             health: 60,
+            mana: 120,
             defense: 2,
             atkDamage: 18,
-            skill1: "Arcane shot",
+            skill1: "Arcane Blast",
             skill2: "Arcane Shield",
             heal: true
         );
@@ -21,12 +22,15 @@ class Mage extends Character
         $damage = $this->getAtkDamage() - $opponent->getDefense();
         $opponent->setHealth($opponent->getHealth() - $damage);
 
+        system('clear');
+
         echo $this->getName() . " conjura sua magia, causando dano de " . $this->getAtkDamage() . " pontos.\n";
         echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
     }
 
     public function heal()
     {
+        system('clear');
         if ($this->hasHeal()) {
             echo "Usando poção de cura, " . $this->getName() . " recupera 20 pontos de vida.\n";
             $this->setHealth($this->getHealth() + 20);
@@ -39,10 +43,23 @@ class Mage extends Character
 
     public function useSkill_1(Character $opponent)
     {
-        echo "usando arcane shot\n";
+        system('clear');
+
+        if ($this->getMana() >= 50) {
+            $arcaneBlast = $this->getAtkDamage() + 5;
+            $opponent->setHealth($opponent->getHealth() - $arcaneBlast);
+            echo $this->getName() . " conjura Arcane Blast, causando dano de $arcaneBlast pontos.\n";
+            echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
+            $this->setMana($this->getMana() - 50);
+        } else {
+            throw new Exception("Mana insuficiente!\n");
+        }
+
+        echo $this->getName() . " tem " . $this->getMana() . " pontos de mana restantes.\n";
     }
     public function useSkill_2(Character $opponent)
     {
+        system('clear');
         echo "usando arcane shield\n";
     }
 }

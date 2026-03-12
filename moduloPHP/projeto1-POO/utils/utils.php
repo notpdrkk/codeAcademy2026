@@ -1,17 +1,9 @@
 <?php
 
-function clearScreen()
-{
-    // if (PHP_OS_FAMILY === 'Linux') {
-    //     system('clear');
-    // } else {
-    //     system('cmd /c cls');
-    // }
+function clearScreen (){
 
-    for ($i = 0; $i < 20; $i++) {
-        echo "\n";
-    }
-
+    (PHP_OS_FAMILY === 'Windows') ? system('cls') : system('clear');
+    
 }
 
 function line()
