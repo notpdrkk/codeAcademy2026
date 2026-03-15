@@ -32,21 +32,6 @@ abstract class Character implements charInterface
         return $this->name;
     }
 
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    public function getCharClass($charClass)
-    {
-        return $this->charClass;
-    }
-
-    public function setCharClass($charClass)
-    {
-        $this->charClass = $charClass;
-    }
-
     public function getHealth()
     {
         return $this->health;
@@ -92,19 +77,9 @@ abstract class Character implements charInterface
         return $this->skill1;
     }
 
-    public function setSkill_1($skill1)
-    {
-        $this->skill1 = $skill1;
-    }
-
     public function getSkill_2()
     {
         return $this->skill2;
-    }
-
-    public function setSkill_2($skill2)
-    {
-        $this->skill2 = $skill2;
     }
 
     public function hasHeal()

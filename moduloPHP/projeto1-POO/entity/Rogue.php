@@ -22,7 +22,7 @@ class Rogue extends Character
         $damage = $this->getAtkDamage() - $opponent->getDefense();
         $opponent->setHealth($opponent->getHealth() - $damage);
 
-        system('clear');
+        clearScreen();
 
         echo $this->getName() . " ataca com sua adaga, causando dano de $damage pontos.\n";
         echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
@@ -32,7 +32,6 @@ class Rogue extends Character
     {
         if ($this->hasHeal()) {
             system('clear');
-            
             echo "Usando poção de cura, " . $this->getName() . " recupera 20 pontos de vida.\n";
             $this->setHealth($this->getHealth() + 20);
             echo $this->getName() . " agora tem " . $this->getHealth() . " pontos de vida\n";
@@ -44,7 +43,7 @@ class Rogue extends Character
 
     public function useSkill_1(Character $opponent)
     {
-        system('clear');
+        clearScreen();
 
         if ($this->getMana() >= 45) {
             echo $this->getName() . " usa Backstab, causando dano crítico de " . ($this->getAtkDamage() * 2) . " pontos.\n";
@@ -54,13 +53,13 @@ class Rogue extends Character
         } else {
             throw new Exception("Mana insuficiente!\n");
         }
-        
+
         echo $this->getName() . " tem " . $this->getMana() . " pontos de mana restantes.\n";
     }
 
     public function useSkill_2(Character $opponent)
     {
-        system('clear');
+        clearScreen();
         echo $this->getName() . " usa Instant Poison, envenenando o oponente e causando dano ao longo do tempo.\n";
     }
 }

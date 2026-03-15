@@ -8,6 +8,7 @@ require_once "./entity/Player.php";
 require_once "./entity/Warrior.php";
 require_once "./entity/Combat.php";
 
+
 mainMenu();
 
 $player1 = new Player(1, charSelector());

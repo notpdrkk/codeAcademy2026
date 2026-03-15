@@ -1,9 +1,9 @@
 <?php
 
+
 class Player
 {
     private $turn;
-
     private Character $char;
     public function __construct($turn, Character $char)
     {
@@ -11,23 +11,8 @@ class Player
         $this->char = $char;
     }
 
-    public function getTurn()
-    {
-        return $this->turn;
-    }
-
-    public function setTurn($turn)
-    {
-        $this->turn = $turn;
-    }
-
     public function getChar(): Character
     {
         return $this->char;
-    }
-
-    public function setChar($char)
-    {
-        $this->char = $char;
     }
 }

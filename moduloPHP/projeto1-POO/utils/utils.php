@@ -1,9 +1,11 @@
 <?php
 
-function clearScreen (){
-
-    (PHP_OS_FAMILY === 'Windows') ? system('cls') : system('clear');
-    
+function clearScreen(){
+    if (PHP_OS_FAMILY == "Windows") {
+        system('cls');
+    } else {
+        system('clear');
+    }
 }
 
 function line()

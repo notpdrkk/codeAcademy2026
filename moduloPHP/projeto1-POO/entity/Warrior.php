@@ -23,7 +23,7 @@ class Warrior extends Character
         $damage = $this->getAtkDamage() - $opponent->getDefense();
         $opponent->setHealth($opponent->getHealth() - $damage);
 
-        system('clear');
+        clearScreen();
 
         echo $this->getName() . " ataca com seu machado, causando dano de $damage pontos.\n";
         echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
@@ -31,7 +31,7 @@ class Warrior extends Character
 
     public function heal()
     {
-        system('clear');
+        clearScreen();
         if ($this->hasHeal()) {
             echo "Usando poção de cura, " . $this->getName() . " recupera 20 pontos de vida.\n";
             $this->setHealth($this->getHealth() + 20);
@@ -44,7 +44,7 @@ class Warrior extends Character
 
     public function useSkill_1(Character $opponent)
     {
-        system('clear');
+        clearScreen();
 
         if ($this->getMana() >= 40) {
             echo "Warrior usa Victory Rush, causando dano de " . ($this->getAtkDamage() + 5) . " pontos e recuperando 10 pontos de vida.\n";
@@ -61,7 +61,7 @@ class Warrior extends Character
 
     public function useSkill_2(Character $opponent)
     {
-        system('clear');
+        clearScreen();
 
         echo $this->getName() . " usa Berserker Rage, aumentando seu ataque em 5 pontos por 3 turnos.\n";
 

@@ -22,7 +22,7 @@ class Mage extends Character
         $damage = $this->getAtkDamage() - $opponent->getDefense();
         $opponent->setHealth($opponent->getHealth() - $damage);
 
-        system('clear');
+        clearScreen();
 
         echo $this->getName() . " conjura sua magia, causando dano de " . $this->getAtkDamage() . " pontos.\n";
         echo $opponent->getName() . " tem " . $opponent->getHealth() . " pontos de vida restantes.\n";
@@ -30,7 +30,7 @@ class Mage extends Character
 
     public function heal()
     {
-        system('clear');
+        clearScreen();
         if ($this->hasHeal()) {
             echo "Usando poção de cura, " . $this->getName() . " recupera 20 pontos de vida.\n";
             $this->setHealth($this->getHealth() + 20);
@@ -43,7 +43,7 @@ class Mage extends Character
 
     public function useSkill_1(Character $opponent)
     {
-        system('clear');
+        clearScreen();
 
         if ($this->getMana() >= 50) {
             $arcaneBlast = $this->getAtkDamage() + 5;
@@ -59,7 +59,7 @@ class Mage extends Character
     }
     public function useSkill_2(Character $opponent)
     {
-        system('clear');
+        clearScreen();
         echo "usando arcane shield\n";
     }
 }
